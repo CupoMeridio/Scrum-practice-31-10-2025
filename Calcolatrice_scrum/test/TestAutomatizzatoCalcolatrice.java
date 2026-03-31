@@ -1,5 +1,4 @@
-package calcolatrice_scrum;
-
+import calcolatrice_scrum.Calcolatrice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
