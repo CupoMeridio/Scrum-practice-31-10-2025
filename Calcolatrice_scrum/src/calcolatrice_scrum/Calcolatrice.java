@@ -11,10 +11,10 @@ package calcolatrice_scrum;
 public class Calcolatrice {
     
   
-   private Float risultato ;
+   private float risultato ;
 
     public Calcolatrice() {
-        this.risultato = null;
+        this.risultato = 0.0f;
     }
 
    
@@ -47,7 +47,8 @@ public class Calcolatrice {
        if(SecondoOperatore != 0){
            risultato= PrimoOperatore/SecondoOperatore;
        }else{
-       risultato =  null;
+        throw new IllegalArgumentException ("Non puoi fare divisioni per 0");
+
        }
        return risultato; 
     }

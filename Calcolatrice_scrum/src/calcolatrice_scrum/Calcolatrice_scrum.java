@@ -7,12 +7,12 @@ public class Calcolatrice_scrum {
         // Creiamo lo scanner per leggere l'input dell'utente e istanziamo la calcolatrice
         Scanner scanner = new Scanner(System.in);
         Calcolatrice calc = new Calcolatrice();
-
+        boolean termina = true;
         // Messaggio di benvenuto
        
         System.out.println("  BENVENUTO NELLA CALCOLATRICE SCRUM!   ");
        
-
+        while(termina){
         try {
             // Richiesta del primo operando
             System.out.print("Inserisci il primo numero: ");
@@ -34,34 +34,39 @@ public class Calcolatrice_scrum {
                 case '+' -> risultatoFinale = calc.somma(primoOperatore, secondoOperatore);
                 case '-' -> risultatoFinale = calc.sottrazione(primoOperatore, secondoOperatore);
                 case '*' -> risultatoFinale = calc.prodotto(primoOperatore, secondoOperatore);
-                case ':' -> {
-                    // Preveniamo la divisione per zero prima di chiamare il metodo
-                    if (secondoOperatore == 0) {
-                        System.out.println("Errore: Impossibile dividere per zero!");
-                        operazioneValida = false;
-                    } else {
-                        risultatoFinale = calc.divisione(primoOperatore, secondoOperatore);
-                    }
-                }
+                case ':' -> { risultatoFinale = calc.divisione(primoOperatore, secondoOperatore);}
+                
                 default -> {
                     System.out.println("Errore: Operazione '" + operazione + "' non riconosciuta.");
                     operazioneValida = false;
                 }
             }
+            
 
             // Stampiamo il risultato solo se tutto è andato a buon fine
-            if (operazioneValida) {
+            
                 
                 System.out.println("Il risultato e': " + risultatoFinale);
-               
-            }
+
 
         } catch (Exception e) {
             // Catturiamo l'errore se l'utente inserisce lettere al posto dei numeri
             System.out.println("Errore: Input non valido. Assicurati di inserire dei numeri (usa la virgola per i decimali).");
-        } finally {
+        } 
+         
+        System.out.print("\nVuoi continuare con i calcoli? (S/N): ");
+            char rispostaContinuazione = scanner.next().charAt(0);
+            
+            // Controlliamo sia la 'S' maiuscola che la 's' minuscola
+            if(rispostaContinuazione == 'S' || rispostaContinuazione == 's'){
+                termina = true; // Il ciclo continua
+            } else {
+                termina = false; // Il ciclo si ferma
+                System.out.println("Grazie per aver usato la Calcolatrice Scrum. Arrivederci!");
+            }
+    }
+        
             // Chiudiamo lo scanner per liberare le risorse
             scanner.close();
-        }
     }
 }
