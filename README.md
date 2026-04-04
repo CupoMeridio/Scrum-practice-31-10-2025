@@ -25,7 +25,12 @@ Sono apprezzate funzionalità avanzate, come comportamenti simili alla memoria e
 
 ## Scrum Process Practice
 
-Il progetto è stato sviluppato come esercitazione Scrum con team da 3-4 persone e board Trello condivisa.
+Il progetto è stato sviluppato come esercitazione Scrum con team da 3-4 persone. La gestione del flusso di lavoro è stata interamente affidata a una board Trello, utilizzata non solo come task board, ma come vero strumento di pianificazione agile:
+
+- Definizione delle User Stories: Ogni esigenza dell'utente è stata formalizzata come User Story all'interno del Backlog.
+- Etichette e Priorità: Abbiamo utilizzato il sistema di etichette (Labels) di Trello per classificare le storie in base alla priorità (Alta, Media, Bassa) e per assegnare gli Story Points, permettendo una stima immediata del carico di lavoro.
+- Scomposizione Granulare: Ogni User Story è stata scomposta in ulteriori schede tecniche indipendenti. Questo ha permesso di gestire ogni sotto-task come un'entità autonoma, facilitandone lo spostamento tra le fasi di sviluppo (To Do, Doing, Done).
+- Assegnazione e Responsabilità: Grazie al sistema di assegnazione dei membri, ogni task è stato preso in carico dai diversi componenti del gruppo, garantendo trasparenza sullo stato di avanzamento e una divisione equa del lavoro durante gli Sprint.
 
 ### Prerequisiti della pratica
 
