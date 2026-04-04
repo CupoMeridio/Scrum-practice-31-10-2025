@@ -1,4 +1,5 @@
-import calcolatrice_scrum.Calcolatrice;
+package calcolatrice_scrum;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -30,5 +31,18 @@ public class TestAutomatizzatoCalcolatrice {
     @Test
     public void testDivisione() {
         assertEquals(2.0f, calc.divisione(10.0f, 5.0f), 0.0001f);
+    }
+    
+    @Test
+    public void testDivisionePerZero() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            calc.divisione(10.0f, 0.0f);
+        });
+    }
+
+    @Test
+    public void testGetRisultato() {
+        calc.somma(10.0f, 5.0f);
+        assertEquals(15.0f, calc.getRisultato(), 0.0001f);
     }
 }
