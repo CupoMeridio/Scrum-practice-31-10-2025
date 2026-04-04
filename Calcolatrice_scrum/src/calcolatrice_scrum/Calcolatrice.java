@@ -13,12 +13,23 @@ public class Calcolatrice {
     
   
    private float risultato ;
+   private boolean degree_mode; // if false : radiant mode
+
+    
 
     public Calcolatrice() {
         this.risultato = 0.0f;
+        this.degree_mode = false;
     }
 
-   
+    public boolean isDegree_mode() {
+        return degree_mode;
+    }
+
+    public void setDegree_mode(boolean degree_mode) {
+        this.degree_mode = degree_mode;
+    }
+    
     public float getRisultato() {
         return risultato ;
     }
