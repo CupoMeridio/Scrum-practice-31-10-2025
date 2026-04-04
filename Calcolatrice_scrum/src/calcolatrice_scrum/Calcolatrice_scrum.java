@@ -3,6 +3,17 @@ package calcolatrice_scrum;
 import java.util.Scanner;
 
 public class Calcolatrice_scrum {
+    
+    // Definiamo la nostra interfaccia funzionale
+    @FunctionalInterface
+    public interface OperazioneBinaria {
+        float esegui(float op1, float op2);
+    }
+    
+    @FunctionalInterface
+    public interface OperazioneUnaria {
+        float esegui(float op1, boolean mod);
+    }
 
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
@@ -13,35 +24,55 @@ public class Calcolatrice_scrum {
 
             while (termina) {
                 try {
-                    // 1. Richiesta dell'operazione
+                    
                     System.out.print("Inserisci l'operazione (+, -, *, :, seno, coseno, tan): ");
                     String operazione = scanner.next().toLowerCase();
 
-                    float risultatoFinale = 0;
+                    float risultatoFinale;
 
-                    // Il primo operando serve sempre
-                    float valorePrimoOperando = leggiOperando(scanner, "primo", calc);
-
-                    float valoreSecondoOperando = 0.0f;
-                    if (!operazione.equals("seno") && !operazione.equals("coseno") && !operazione.equals("tan")) {
-                        valoreSecondoOperando = leggiOperando(scanner, "secondo", calc);
-                    }
-
+                    OperazioneBinaria operazioneScelta = null;
+                    OperazioneUnaria opUnariaScelta = null;
+                    boolean operazioneValida= true;
+                    
                     switch (operazione) {
-                        case "+" -> risultatoFinale = calc.somma(valorePrimoOperando, valoreSecondoOperando);
-                        case "-" -> risultatoFinale = calc.sottrazione(valorePrimoOperando, valoreSecondoOperando);
-                        case "*" -> risultatoFinale = calc.prodotto(valorePrimoOperando, valoreSecondoOperando);
-                        case ":" -> risultatoFinale = calc.divisione(valorePrimoOperando, valoreSecondoOperando);
-                        case "seno" -> risultatoFinale = calc.seno(valorePrimoOperando, calc.isDegree_mode());
-                        case "coseno" -> risultatoFinale = calc.coseno(valorePrimoOperando, calc.isDegree_mode());
-                        case "tan" -> risultatoFinale = calc.tangente(valorePrimoOperando, calc.isDegree_mode());
-                        default -> {
-                            System.out.println("Errore: Operazione '" + operazione + "' non riconosciuta.");
-                            continue;
+                    case "+" -> operazioneScelta = (a, b) -> calc.somma(a, b);
+                    case "-" -> operazioneScelta = (a, b) -> calc.sottrazione(a, b);
+                    case "*" -> operazioneScelta = (a, b) -> calc.prodotto(a, b);
+                    case ":" -> operazioneScelta = (a, b) -> calc.divisione(a, b);
+                    case "seno" -> opUnariaScelta = (a, mod) -> calc.seno(a, mod);
+                    case "coseno" -> opUnariaScelta = (a, mod) -> calc.coseno(a, mod);
+                    case "tan" -> opUnariaScelta = (a, mod) -> calc.tangente(a, mod);
+                    default -> {
+                        System.out.println("Errore: Operazione '" + operazione + "' non riconosciuta.");
+                         operazioneValida = false;
                         }
                     }
-
-                    System.out.println("Il risultato è: " + risultatoFinale);
+                    
+                    // Se lo switch ha trovato un'operazione valida, eseguiamo la Lambda!
+                if (operazioneValida) {
+                    // Chiamiamo il metodo esegui() dell'interfaccia
+                     // Il primo operando serve sempre
+                    float valorePrimoOperando;
+                    float valoreSecondoOperando;
+                    
+                    if (opUnariaScelta == null) {
+                        valorePrimoOperando = leggiOperando(scanner, "primo", calc);
+                        valoreSecondoOperando = leggiOperando(scanner, "secondo", calc);
+                        risultatoFinale = operazioneScelta.esegui(valorePrimoOperando, valoreSecondoOperando);
+                    }else{
+                        System.out.print("La modalita degree_mode è:  "+calc.isDegree_mode()+"\nVuoi cambiare modalità? (S/N) ");
+                        String modalita = scanner.next().toLowerCase();
+                        if (!modalita.equalsIgnoreCase("S")) {  
+                            calc.setDegree_mode(!calc.isDegree_mode());
+                        }
+                        valorePrimoOperando = leggiOperando(scanner, "primo", calc);
+                        risultatoFinale = opUnariaScelta.esegui(valorePrimoOperando, calc.isDegree_mode());
+                    }
+                    
+                    
+                    System.out.println("Il risultato e': " + risultatoFinale);
+                   
+                }
 
                 } catch (NumberFormatException e) {
                     System.out.println("Errore: Input non valido. Inserisci un numero o 'res'.");
@@ -75,4 +106,5 @@ public class Calcolatrice_scrum {
             }
         }
     }
+    
 }

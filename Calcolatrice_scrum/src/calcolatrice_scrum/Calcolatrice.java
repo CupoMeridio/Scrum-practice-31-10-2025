@@ -45,19 +45,19 @@ public class Calcolatrice {
    
    public float sottrazione(float PrimoOperatore, float SecondoOperatore){
        
-       risultato = somma(PrimoOperatore, -SecondoOperatore);
+       this.risultato = somma(PrimoOperatore, -SecondoOperatore);
        return risultato;
    }
    
    public float prodotto(float PrimoOperatore, float SecondoOperatore){
-       risultato = PrimoOperatore*SecondoOperatore;
+       this.risultato = PrimoOperatore*SecondoOperatore;
        return risultato;
    }
    
    public float divisione (float PrimoOperatore, float SecondoOperatore) {
 
        if(SecondoOperatore != 0){
-           risultato= PrimoOperatore/SecondoOperatore;
+           this.risultato= PrimoOperatore/SecondoOperatore;
        }else{
         throw new IllegalArgumentException ("Non puoi fare divisioni per 0");
 
@@ -84,11 +84,12 @@ public class Calcolatrice {
    /* Funzione per il coseno (scegliendo se il valore è in gradi o radianti) */
    public float coseno(float valore, boolean valoreInGradi){
        if(valoreInGradi){
-           return (float) Math.cos(this.conversioneDaGradiInRadianti(valore));
+           this.risultato= (float) Math.cos(this.conversioneDaGradiInRadianti(valore));
        } else {
            // Se è già in radianti, uso direttamente il metodo base
-           return this.coseno(valore); 
+           this.risultato= this.coseno(valore); 
        }
+       return (float) this.risultato;
    }
    
    /* Funzione per il seno (valore in radianti) */
@@ -100,11 +101,12 @@ public class Calcolatrice {
    /* Funzione per il seno (scegliendo se il valore è in gradi o radianti) */
    public float seno(float valore, boolean valoreInGradi){
        if(valoreInGradi){
-           return (float) Math.sin(this.conversioneDaGradiInRadianti(valore));
+           this.risultato=  (float) Math.sin(this.conversioneDaGradiInRadianti(valore));
        } else {
            // Se è già in radianti, uso direttamente il metodo base
-           return this.seno(valore);
+           this.risultato=  this.seno(valore);
        }
+       return this.risultato;
    }
    
    
@@ -116,10 +118,11 @@ public class Calcolatrice {
    /* Funzione per la tangente (scegliendo se il valore è in gradi o radianti) */
    public float tangente(float valore, boolean valoreInGradi){
        if (valoreInGradi){
-          return (float) Math.tan(this.conversioneDaGradiInRadianti(valore));
+          this.risultato=  (float) Math.tan(this.conversioneDaGradiInRadianti(valore));
        } else {
           // Se è già in radianti, uso direttamente il metodo base
-          return this.tangente(valore);
+          this.risultato=  this.tangente(valore);
        }
+       return this.risultato;
    }
 }
