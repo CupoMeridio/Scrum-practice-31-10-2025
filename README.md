@@ -1,0 +1,66 @@
+# Scrum Practice Calculator
+
+Progetto accademico sviluppato durante una simulazione Scrum, con obiettivo la realizzazione di una calcolatrice da terminale senza interfaccia grafica.
+
+## Problem Description
+
+L'obiettivo è creare un programma che permetta di usare il computer come calcolatrice.  
+Il programma non richiede un'interfaccia grafica.  
+Deve supportare le principali operazioni aritmetiche sui numeri reali e consentire il riutilizzo del risultato dell'ultima operazione come operando per quella successiva.  
+Sono apprezzate funzionalità avanzate, come comportamenti simili alla memoria e funzioni da calcolatrice scientifica (ad esempio le funzioni trigonometriche).
+
+## Funzionalità implementate
+
+- Operazioni base sui numeri reali: somma, sottrazione, prodotto, divisione
+- Riutilizzo del risultato precedente tramite input `res`
+- Funzioni trigonometriche: `sin/seno`, `cos/coseno`, `tan/tangente`
+- Supporto modalità angoli in radianti o gradi
+- Validazioni su input non numerici e casi non ammessi (divisione per zero, tangente non definita)
+- Test automatici con JUnit 4 per operazioni aritmetiche, trigonometriche, conversioni e gestione errori
+
+## Requisiti
+
+- [Java JDK](https://www.oracle.com/java/technologies/javase/jdk24-archive-downloads.html) (nel progetto NetBeans è impostato `JDK_24`; in ambiente locale è consigliato usare JDK compatibile)
+- [NetBeans](https://www.codelerity.com/netbeans/) (opzionale ma consigliato per import diretto del progetto)
+
+## Scrum Process Practice
+
+Il progetto è stato sviluppato come esercitazione Scrum con team da 3-4 persone e board Trello condivisa.
+
+### Prerequisiti della pratica
+
+- Team di 3-4 persone
+- Conoscenza base Scrum
+- Accesso a Trello
+- Ambiente di sviluppo scelto dal team
+
+### Fasi della simulazione
+
+- **Step 1 – Preparation (45 min, pre-aula)**  
+  Definizione ruoli (Product Owner + Team), setup board Trello, creazione backlog iniziale user stories, Definition of Done, accordo tecnico.
+
+- **Sprint 1**
+  - Planning (10 min)
+  - Development (40 min) + Delivery 1 (incremento potenzialmente rilasciabile)
+  - Review (5 min)
+  - Retrospective (5 min)
+
+- **Sprint 2**
+  - Planning (10 min)
+  - Development (40 min) + Delivery 2 (incremento potenzialmente rilasciabile)
+  - Review (5 min)
+  - Retrospective (5 min)
+
+- **Sprint 3 (simulazione estesa dal team)**  
+  Iterazione aggiuntiva utilizzata per consolidare integrazione, qualità del codice e verifica funzionale.
+
+- **Consegna finale (Delivery 3)**  
+  Report riassuntivo dell’attività svolta secondo template fornito.
+
+## Report Scrum
+
+Link al report (read-only): [Report Scrum - Google Docs](https://docs.google.com/document/d/1lbCg9Yh2O5zoObNZSU_qRbngo5bRLm3kLhqnRN6rXKQ/edit?usp=sharing)
+
+## Board Trello realizzata durante lo sviluppo
+
+
