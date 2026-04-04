@@ -1,6 +1,9 @@
 # Scrum Practice - Calculator
 
 Progetto accademico sviluppato nell'ambito del corso di Software Architecture and Design (A.A. 2025/26) presso l'Università degli Studi di Salerno (UNISA) durante una simulazione Scrum, con obiettivo la realizzazione di una calcolatrice da terminale senza interfaccia grafica.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/811a1a5a-88ab-4bb0-a749-ebf3f7ce8c5c">
+</div>
 
 ## Problem Description
 
