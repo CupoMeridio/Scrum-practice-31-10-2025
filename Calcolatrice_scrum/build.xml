@@ -70,4 +70,8 @@
     nbproject/build-impl.xml file. 
 
     -->
+	<target name="-pre-jar">
+        <echo message="Esecuzione automatica dei test unitari prima del build..."/>
+        <antcall target="test"/>
+    </target>
 </project>
