@@ -1,6 +1,6 @@
-# Scrum Practice Calculator
+# Scrum Practice - Calculator
 
-Progetto accademico sviluppato durante una simulazione Scrum, con obiettivo la realizzazione di una calcolatrice da terminale senza interfaccia grafica.
+Progetto accademico sviluppato nell'ambito del corso di Software Architecture and Design (A.A. 2025/26) presso l'Università degli Studi di Salerno (UNISA) durante una simulazione Scrum, con obiettivo la realizzazione di una calcolatrice da terminale senza interfaccia grafica.
 
 ## Problem Description
 
@@ -62,5 +62,6 @@ Il progetto è stato sviluppato come esercitazione Scrum con team da 3-4 persone
 Link al report (read-only): [Report Scrum - Google Docs](https://docs.google.com/document/d/1lbCg9Yh2O5zoObNZSU_qRbngo5bRLm3kLhqnRN6rXKQ/edit?usp=sharing)
 
 ## Board Trello realizzata durante lo sviluppo
+<img width="1917" height="931" alt="Screenshot 2026-04-05 002432" src="https://github.com/user-attachments/assets/f4e64504-e4aa-4639-b6ab-98d0f089adfc" />
 
 
