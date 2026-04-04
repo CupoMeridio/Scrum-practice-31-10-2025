@@ -16,11 +16,35 @@ public class Calcolatrice_scrum {
         try {
             // Richiesta del primo operando
             System.out.print("Inserisci il primo numero: ");
-            float primoOperatore = scanner.nextFloat();
+            
+            String primoOperatoreInput = scanner.next();
+            float valorePrimoOperatore;
+            
+            if (primoOperatoreInput.equalsIgnoreCase("res")) {
+                valorePrimoOperatore = calc.getRisultato();
+            } else {
+                try {
+                    valorePrimoOperatore = Float.parseFloat(primoOperatoreInput);
+                } catch (NumberFormatException e) {
+                    System.out.println("Inserisci un numero valido o 'res'");
+                    continue; 
+                }
+            }
 
             // Richiesta del secondo operando
             System.out.print("Inserisci il secondo numero: ");
-            float secondoOperatore = scanner.nextFloat();
+            String secondoOperatoreInput = scanner.next();
+            float valoreSecondoOperatore;
+            if (secondoOperatoreInput.equalsIgnoreCase("res")) {
+                valoreSecondoOperatore = calc.getRisultato();
+            } else {
+                try {
+                    valoreSecondoOperatore = Float.parseFloat(secondoOperatoreInput);
+                } catch (NumberFormatException e) {
+                    System.out.println("Inserisci un numero valido o 'res'");
+                    continue; 
+                }
+            }
 
             // Richiesta dell'operazione
             System.out.print("Inserisci l'operazione da eseguire (+, -, *, :): ");
@@ -31,10 +55,10 @@ public class Calcolatrice_scrum {
 
             // Selezione dell'operazione tramite switch
             switch (operazione) {
-                case '+' -> risultatoFinale = calc.somma(primoOperatore, secondoOperatore);
-                case '-' -> risultatoFinale = calc.sottrazione(primoOperatore, secondoOperatore);
-                case '*' -> risultatoFinale = calc.prodotto(primoOperatore, secondoOperatore);
-                case ':' -> { risultatoFinale = calc.divisione(primoOperatore, secondoOperatore);}
+                case '+' -> risultatoFinale = calc.somma(valorePrimoOperatore, valoreSecondoOperatore);
+                case '-' -> risultatoFinale = calc.sottrazione(valorePrimoOperatore, valoreSecondoOperatore);
+                case '*' -> risultatoFinale = calc.prodotto(valorePrimoOperatore, valoreSecondoOperatore);
+                case ':' -> { risultatoFinale = calc.divisione(valorePrimoOperatore, valoreSecondoOperatore);}
                 
                 default -> {
                     System.out.println("Errore: Operazione '" + operazione + "' non riconosciuta.");
