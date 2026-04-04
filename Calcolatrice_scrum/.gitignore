@@ -1,0 +1,22 @@
+# --- NetBeans & Ant Specific ---
+# User-specific project settings (like local JDK paths)
+**/nbproject/private/
+
+# Generated files that NetBeans recreates automatically
+**/nbproject/build-impl.xml
+**/nbproject/genfiles.properties
+
+# Compiled output and distribution folders
+**/build/
+**/dist/
+
+# --- General Java ---
+*.class
+*.jar
+*.war
+*.ear
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+desktop.ini
